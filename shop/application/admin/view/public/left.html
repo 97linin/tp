@@ -1,0 +1,32 @@
+{eq name="$Think.session.admin_level" value="1"}
+<ul class="nav nav-pills nav-stacked">
+ <li class="nav-header h4">系统管理</li>
+ <li><a href="#"><span class="glyphicon glyphicon-cog">&nbsp;网站管理</span></a></li>
+</ul>
+{/eq}
+<ul class="nav nav-pills nav-stacked">
+ <li class="nav-header h4">用户管理</li>
+ <li><a href="{:url('admin/User/userList')}"><span class="glyphicon glyphicon-user">&nbsp;修改个人信息</span></a></li>
+</ul>
+<ul class="nav nav-pills nav-stacked">
+ <li class="nav-header h4">购物车</li>
+ <li><a href="{:url('admin/Fav/favList')}"><span class="glyphicon glyphicon-user">&nbsp;{$Think.session.admin_name}</a></li>
+</ul>
+
+<ul class="nav nav-pills nav-stacked">
+	{eq name="$Think.session.admin_level" value="1"}
+ <li class="nav-header h4">商品管理</li>
+
+ <li><a href="{:url('cate/cateList')}"><span class="glyphicon glyphicon-lock">&nbsp;商品分类管理</span></a></li>
+
+ <li><a href="{:url('article/artlist')}"><span class="glyphicon glyphicon-align-justify">&nbsp;商品管理</span></a></li>
+ <li class="nav-header h4">商品订单管理</li>
+ <li><a href="{:url('Shop/shopList')}"><span class="glyphicon glyphicon-align-justify">&nbsp;所有订单</span></a></li>
+  <li class="nav-header h4">评论管理</li>
+   <li><a href="{:url('Comments/commentslist')}"><span class="glyphicon glyphicon-align-justify">&nbsp;评论列表</span></a></li>
+ {/eq}
+{neq name="$Think.session.admin_level" value="1"}
+ <li class="nav-header h4">订单管理</li>
+ <li><a href="{:url('Shop/shopList')}"><span class="glyphicon glyphicon-align-justify">&nbsp;我的订单</span></a></li>
+{/neq}
+</ul>

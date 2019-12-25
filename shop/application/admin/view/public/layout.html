@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>{$title|default="页面标题"}</title>
+		{load href="__STATIC__/assets/css/bootstrap.min.css"}
+		{load href="__STATIC__/assets/js/jquery.min.js"}
+		{load href="__STATIC__/assets/js/bootstrap.min.js"}
+	</head>
+	<body>
+		<div class="container">
+			<div class="row">
+				<div class="col-md-12">
+					{include file="/public/nav"/}
+				</div>
+			</div>
+				<div class="row">
+				<div class="col-md-2">
+					{include file="/public/left"/}
+				</div>
+				
+				<div class="col-md-10">
+					{__CONTENT__}
+				</div>
+			</div>
+		</div>
+	</body>
+</html>

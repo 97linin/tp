@@ -1,0 +1,103 @@
+{include file="public/header"/}
+			{include file="public/nav"/}
+			
+			<!--<div class="row">
+				<div class="col-md-8">
+					<div class="page-header">
+	                  <h2>{$cateName}</h2>
+                    </div>
+                    {volist name="artList" id="art" empty="$empty"}
+                    <div>
+                    	<img class="img-rounded" src="__PUBLIC__/uploads/{$art.title_img}" style="margin-right:30px;float:left; width:100px;height:85px;"/>
+                    	<div>
+                    		<h4><a href="{:url('detail',['id'=>$art.id])}">{$art.title}</a></h4>
+                    	    <p>发布者：{$art.user_id|getUserName}&nbsp;&nbsp;&nbsp;&nbsp;发布时间:{$art.create_time|date='Y-m-d'} ;&nbsp;阅读量:{$art.pv}</p>  
+                    	    <div>{$art.content|getArtContent}</div>
+                    	  
+                    	   <hr>
+                    	</div>
+                    	
+                    </div>  
+                       {/volist}
+			     <div class="text-center">{$artList|raw}</div>-->
+
+	<link rel="stylesheet" href="__STATIC__/assets/css/normalize.css">
+	<link rel="stylesheet" type="text/css" href="__STATIC__/assets/css/default.css">
+	<link rel="stylesheet" type="text/css" href="__STATIC__/assets/css/bootstrap.min.css">
+	<style type="text/css">
+		#gallery-wrapper {
+		position: relative;
+		max-width: 75%;
+		width: 75%;
+		margin:50px auto;
+		}
+		img.thumb {
+		width: 100%;
+		max-width: 100%;
+		height: auto;
+		}
+		.white-panel {
+		position: absolute;
+		background: white;
+		border-radius: 5px;
+		box-shadow: 0px 1px 2px rgba(0,0,0,0.3);
+		padding: 10px;
+		}
+		.white-panel h1 {
+		font-size: 1em;
+		}
+		.white-panel h1 a {
+		color: #A92733;
+		}
+		.white-panel:hover {
+		box-shadow: 1px 1px 10px rgba(0,0,0,0.5);
+		margin-top: -5px;
+		-webkit-transition: all 0.3s ease-in-out;
+		-moz-transition: all 0.3s ease-in-out;
+		-o-transition: all 0.3s ease-in-out;
+		transition: all 0.3s ease-in-out;
+		}
+	</style>
+	
+</head>
+<body style=" background-image: url('__STATIC__/assets/images/bg.jpg');background-size:100%;background-repeat:no-repeat;background-attachment: fixed;">
+	
+	<h2>{$cateName}</h2>
+	
+	<section id="gallery-wrapper" >
+		{volist name="artList" id="art" empty="$empty"}
+		<article class="white-panel">
+			<img src="__PUBLIC__/uploads/{$art.title_img}" class="thumb">
+			<h1><a href="{:url('detail',['id'=>$art.id])}">{$art.title}</a></h1>
+	  		<p>价格:{$art.price}</p>
+		</article>
+		{/volist}
+    </section>
+       <div class="text-center">{$artList|raw}</div>
+       <div class="row" style="text-align: center; width:120%; height:50px; line-height: 50px; background: black; color:white;" >
+       	  <div class="col-md-12">
+       	  	个人购物网站
+       	  </div>
+       </div>
+	
+	 <script src="__STATIC__/assets/js/bootstrap.min.js"></script>
+	 <script src="__STATIC__/assets/js/jquery.min.js"></script>
+	 <script src="__STATIC__/assets/js/jquery-1.11.0.min.js"></script>
+	 <script src="__STATIC__/assets/js/pinterest_grid.js"></script>
+	 <script type="text/javascript">
+		$(function(){
+			$("#gallery-wrapper").pinterest_grid({
+				no_columns: 4,
+                padding_x: 10,
+                padding_y: 10,
+                margin_bottom: 50,
+                single_column_breakpoint: 700
+			});
+		
+		});
+	
+		
+	</script>
+</body>
+</html>
+
